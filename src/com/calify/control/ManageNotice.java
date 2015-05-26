@@ -73,7 +73,11 @@ public class ManageNotice extends HttpServlet {
 		//删除
 		else if(opp.equals("del")){
 			
-			//...待开发
+			int id = Integer.parseInt((String)request.getParameter("id"));
+			
+			new Operation().delNotice(id);
+			
+			response.sendRedirect("ManageNotice?op=query&pagenow=1");
 			
 		}
 
