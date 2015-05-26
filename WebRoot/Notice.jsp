@@ -76,7 +76,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    	out.println("</td>");
    	out.println("<td>");
    	out.println("<a href=\"Change.jsp?id=" + nb.getNoticeId() + "\">修改</a><br>");
-   	out.println("<a href=\"#\">删除</a><br>");
+   	out.println("<a href=\"ManageNotice?op=del&id=" + nb.getNoticeId() + "\">删除</a><br>");
    	out.println("</td>");
    	out.println("</tr>");
     

@@ -144,8 +144,27 @@ public class Operation {
 		
 		
 		//删除公告
-		public void delNotice(){
-			//...待开发
+		public void delNotice(int id){
+			
+			try{
+				
+				cn = new Conn().getConn();
+				sm = cn.createStatement();
+				
+				sm.executeUpdate("DELETE FROM NOTICE WHERE noticeId = " + id );
+				
+			}catch(Exception e){
+			
+				e.printStackTrace();
+			
+			}finally{
+				
+				close();
+			
+			}
+			
+			
+			
 		}
 		
 		//修改公告
