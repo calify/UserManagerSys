@@ -20,6 +20,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
 
+	<script type="text/javascript">
+	function del(){
+		return window.confirm("确定删除吗？");
+	}
+	</script>
+	
   </head>
   
   <body>
@@ -76,7 +82,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    	out.println("</td>");
    	out.println("<td>");
    	out.println("<a href=\"Change.jsp?id=" + nb.getNoticeId() + "\">修改</a><br>");
-   	out.println("<a href=\"ManageNotice?op=del&id=" + nb.getNoticeId() + "\">删除</a><br>");
+   	out.println("<a onclick=\"return del();\" href=\"ManageNotice?op=del&id=" + nb.getNoticeId() + "\">删除</a><br>");
    	out.println("</td>");
    	out.println("</tr>");
     
