@@ -21,8 +21,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	-->
 
 	<script type="text/javascript">
-	function del(){
-		return window.confirm("确定删除吗？");
+	function del(id){
+	var cf = window.confirm("?");
+	var myA = document.getElementById(id);
+	if(cf){
+		myA.href = "ManageNotice?op=del&id=" + id;
+	}
 	}
 	</script>
 	
@@ -62,7 +66,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    	<td>操作</td>
    </tr>
    
-   <% 
+   <%
    for(int i = 0; i < al.size(); i++){
    
    	NoticeBean nb = (NoticeBean)al.get(i);
@@ -82,12 +86,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    	out.println("</td>");
    	out.println("<td>");
    	out.println("<a href=\"Change.jsp?id=" + nb.getNoticeId() + "\">修改</a><br>");
-   	out.println("<a onclick=\"return del();\" href=\"ManageNotice?op=del&id=" + nb.getNoticeId() + "\">删除</a><br>");
+   	out.println("<a id=\"" + nb.getNoticeId() + "\" onclick=\"del(" + nb.getNoticeId() + ")\" href=\"javacript:void(0)\">删除</a><br>");
    	out.println("</td>");
    	out.println("</tr>");
     
    }
-   
    %>
    
    </table><br/>
